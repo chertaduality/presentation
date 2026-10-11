@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: none;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  input, textarea, select {
+    font-size: 16px !important;
+    border-radius: 8px;
+  }
+}
+
+@layer utilities {
+  .safe-bottom { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+  .safe-top { padding-top: max(0.75rem, env(safe-area-inset-top)); }
+  .touch-target { min-height: 44px; min-width: 44px; }
+  .text-fluid-sm { font-size: clamp(0.75rem, 2vw, 0.875rem); }
+  .text-fluid-base { font-size: clamp(0.875rem, 2.5vw, 1rem); }
+  .text-fluid-lg { font-size: clamp(1rem, 3vw, 1.25rem); }
+  .text-fluid-xl { font-size: clamp(1.25rem, 4vw, 1.75rem); }
+  .text-fluid-2xl { font-size: clamp(1.5rem, 5vw, 2.25rem); }
+  .text-fluid-3xl { font-size: clamp(1.75rem, 6vw, 3rem); }
+  .text-fluid-4xl { font-size: clamp(2rem, 7vw, 3.75rem); }
+  .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+  .bottom-sheet { animation: slideUp 0.3s ease-out; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+}
